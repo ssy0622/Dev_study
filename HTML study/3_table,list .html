@@ -1,0 +1,42 @@
+ <!-- 테이블 (시간표) -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>테이블 , 리스트 </title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <table>
+    <caption>시간표</caption><!-- 테이블의 제목 -->
+    <thead><!-- 첫줄 -->
+      <tr><td></td><th>월</th><th>화</th><th>수</th><th>목</th></tr>
+    </thead>
+    <tbody><!-- thead , tfoodt 이외의 줄 -->
+      <!--가로한줄=tr   칸하나 = td   제목칸 = th      colspan = 가로로 얼마만큼 칸차지 rowspan = 세로로... -->
+      <tr><th>1</th><td>전자회로</td><td></td><td>전자회로</td><td></td></tr>
+      <tr><th>2</th><td>아날로그회로</td><td>자료구조</td><td>아날로그회로</td><td>자료구조</td></tr>
+      <tr><th>3</th><td></td><td rowspan="2">알고리즘</td><td></td><td rowspan="2">알고리즘</td></tr>
+      <tr><th>4</th></tr>
+      <tr><th>5</th></tr>
+      <tr><th>6</th><td></td><td>전자기학</td><td></td><td>전자기학</td></tr>
+      <tr><th>7</th><td rowspan="2">전공설</td><td></td><td rowspan="2">전공설</td></tr>
+      <tr><th>8</th></tr>
+    </tbody>
+    <tfoot> <!-- 마지막 줄 -->
+      <tr><td colspan="4">제 시간표입니다</td></tr>
+    </tfoot>
+  </table>
+</body>
+</html>
+
+<ul><!-- 순서가 없는 리스트 -->
+  <li>Zero</li>
+  <li>Hero</li>
+  <li>Nero</li>
+</ul>
+<ol><!-- 순서가 있는 리스트 -->
+  <li>Zero</li>
+  <li>Hero</li>
+  <li>Nero</li>
+</ol>
+
