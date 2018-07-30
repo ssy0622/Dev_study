@@ -11,14 +11,14 @@ Front-End study
 
 ***
 
-## 공부 순서
+## Study list
 
+>0. Git
 >1. HTML (HyperText Markup Language)
 >2. CSS  (Cascading Style Sheet)
 >3. JS   (Java script)
 >4. jQuery
 >5. NodeJS
 >6. React
->7. MongoDB
->8. Git
+>7. MongoDB 
 
