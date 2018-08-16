@@ -1,0 +1,468 @@
+Sub main()
+    Call 반복문
+  
+    
+End Sub
+
+Sub 반복문()
+
+Dim i As Integer
+Dim j As Integer
+Dim a As Integer
+Dim b As Long
+Dim c As Integer
+a = 1
+b = 1
+c = 0
+Dim wc As Integer
+Dim dc As Integer
+Dim lc As Integer
+Dim bg As Long
+bg = 0
+wc = 0
+dc = 0
+lc = 0
+Dim dcount As Integer
+dcount = 0
+Dim dcount2 As Integer
+dcount2 = 0
+Dim dcount3 As Integer
+dcount3 = 0
+
+Dim arr(14) As Integer
+Dim w(14) As Double
+Dim drow(14) As Double
+Dim lose(14) As Double
+
+'7/28 테스트용
+w(1) = 1.42
+w(2) = 2.4
+w(3) = 2.5
+w(4) = 3.2
+w(5) = 1.82
+w(6) = 2.19
+w(7) = 4.6
+w(8) = 2.1
+w(9) = 2.13
+w(10) = 2.4
+w(11) = 1.67
+w(12) = 2.55
+w(13) = 1.79
+w(14) = 3.35
+
+drow(1) = 4
+drow(2) = 3.05
+drow(3) = 3.3
+drow(4) = 3.1
+drow(5) = 3.2
+drow(6) = 3.1
+drow(7) = 3.5
+drow(8) = 3.05
+drow(9) = 3.05
+drow(10) = 3.05
+drow(11) = 3.35
+drow(12) = 2.9
+drow(13) = 3.2
+drow(14) = 3.5
+
+lose(1) = 5.5
+lose(2) = 2.55
+lose(3) = 2.31
+lose(4) = 2
+lose(5) = 3.65
+lose(6) = 2.8
+lose(7) = 1.58
+lose(8) = 3
+lose(9) = 2.95
+lose(10) = 2.55
+lose(11) = 4.2
+lose(12) = 2.5
+lose(13) = 3.75
+lose(14) = 1.81
+
+
+arr(1) = 0
+arr(2) = 0
+arr(3) = 0
+arr(4) = 0
+arr(5) = 0
+arr(6) = 0
+arr(7) = 0
+arr(8) = 0
+arr(9) = 0
+arr(10) = 0
+arr(11) = 0
+arr(12) = 0
+arr(13) = 0
+arr(14) = 0
+
+For x = 0 To 1 '3의 14승'''''''''''''''''''''
+arr(1) = x
+
+  For ws = 0 To 2 '3의 13승''''''''''''''''''''
+    arr(2) = ws
+   
+       For v = 0 To 2 '3의 12승''''''''''''''''''''''
+        arr(3) = v
+        
+        If (x = 0 And ws = 1 And v = 0) Or (x = 0 And ws = 2 And v = 2) Or (x = 0 And ws = 1 And v = 2) Then
+            Exit For
+        End If
+     
+            For u = 0 To 2 '3의 11승4번'''''''''''''''''''''''''
+            arr(4) = u
+          
+                For t = 0 To 2 '3의 10승'''''''''''''''''''''
+                arr(5) = t
+              
+                    For s = 0 To 2 '3의 9승 6번''''''''''''''''''''
+                    arr(6) = s
+                  
+                        For r = 0 To 2 '3의 8승''''''''''''''''''''
+                        arr(7) = r
+                     
+                            For q = 0 To 2 '3의 7승'''''''''''''''''''''''''
+                            arr(8) = q
+                         
+                                For p = 0 To 2 '3의 6승
+                                arr(9) = p
+                                    For o = 0 To 2 '3의 5승 10번
+                                    arr(10) = o
+                                        For n = 0 To 2 '3의 4승
+                                        arr(11) = n
+                                            For m = 0 To 2 '3의 3승
+                                            arr(12) = m
+                                                For l = 1 To 2 '3의 2승 13번 게임
+                                                arr(13) = l
+                                                    For k = 0 To 2 '3의 1승 14번 게임
+                                                    arr(14) = k
+                                                    
+                                                    
+                                                    '승 무패 갯수 세는것
+                                                                                                      
+                                                        For i = 1 To 14
+                                                        
+                                                                If arr(i) = 0 Then
+                                                                
+                                                                   wc = wc + 1
+                                                                
+                                                                                                                              
+                                                                ElseIf arr(i) = 1 Then
+                                                                   
+                                                                   dc = dc + 1
+                                                                  
+                                                                ElseIf arr(i) = 2 Then
+                                                                   
+                                                                   lc = lc + 1
+                                                                  
+                                                                End If
+                                                            
+                                                        Next
+                                                        
+                                                    '1무 3무 6패 7승 13패 정답 2~3개
+                                                    
+                                                      
+                                                                If arr(4) = 1 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(6) = 1 Then
+                                                                   
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 1 Then
+                                                                   
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                '무가 다른거 7번
+                                                                
+                                                                If arr(1) = 1 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(2) = 1 Then
+                                                                   
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                
+                                                                If arr(7) = 1 Then
+                                                                   
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                
+                                                                If arr(9) = 1 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(12) = 1 Then
+                                                                   
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                
+                                                                If arr(14) = 1 Then
+                                                                   
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                     
+                                                                '무 8
+                                                                
+                                                                If arr(11) = 1 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(12) = 1 Then
+                                                                   
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                
+                                                                If arr(13) = 1 Then
+                                                                   
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                
+                                                                If arr(14) = 1 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                                                                              
+                                                              
+                                                           
+                                                   
+                                                        If wc > 6 Or dc > 8 Or lc > 8 Then '승8무6패8
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf dcount > 2 Or dcount < 1 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                        
+                                                        ElseIf dcount2 > 3 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                        
+                                                        ElseIf dcount3 > 2 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf (arr(1) = 0 And arr(7) = 2 And arr(14) = 2) Or (arr(2) = 0 And arr(9) = 2 And arr(12) = 2) Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                        
+                                                        ElseIf arr(4) = 2 And arr(7) = 2 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf arr(3) = 1 And arr(5) = 0 And arr(6) = 0 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf arr(6) = 0 And arr(8) = 0 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                        
+                                                        ElseIf arr(2) = 0 And arr(3) = 2 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf arr(8) = 0 And arr(11) = 0 And arr(12) = 2 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf arr(9) = 1 And arr(12) = 1 And arr(14) = 1 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        ElseIf arr(2) = 0 And arr(3) = 0 And arr(4) = 1 And arr(8) = 1 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                            
+                                                                                                                                                    
+                                                        Else                              '다음줄
+                                                        
+                                                          For i = 1 To 14
+                                                         
+                                                            If arr(i) = 0 Then
+                                                                   Cells(b, a).Value = "승 " & w(i)
+                                                                   a = a + 1
+                                                                    bg = bg * w(i)
+                                                                ElseIf arr(i) = 1 Then
+                                                                   Cells(b, a).Value = "무 " & drow(i)
+                                                                   a = a + 1
+                                                                    bg = bg * drow(i)
+                                                                ElseIf arr(i) = 2 Then
+                                                                   Cells(b, a).Value = "패 " & lose(i)
+                                                                   a = a + 1
+                                                                  bg = bg * lose(i)
+                                                            End If
+                                                            
+                                                          Next
+                                                          
+                                                             Cells(b, a).Value = bg
+                                                             a = 1
+                                                             b = b + 1
+                                                             c = 0
+                                                             wc = 0
+                                                             dc = 0
+                                                             lc = 0
+                                                             dcount = 0
+                                                             dcount2 = 0
+                                                             dcount3 = 0
+                                                
+                                                        End If
+                                                        
+                                                    Next
+                                                Next
+                                            Next
+                                        Next
+                                    Next
+                                Next
+                            Next
+                        Next
+                    Next
+                Next
+            Next
+        Next
+    Next
+Next
+
+
+End Sub
+
+전북현대  :  강원FC
+ 1.42
+ 4.00
+ 5.50
+
+제주유나  :  포항스틸
+ 2.40
+ 3.05
+ 2.55
+
+대구FC  :  인천유나
+ 2.50
+ 3.30
+ 2.31
+
+뉴캐슬  :  토트넘4
+ 3.20
+ 3.10
+ 2.00
+본머스  :  카디프5
+ 1.82
+ 3.20
+ 3.65
+
+풀럼  :  크리스탈6
+ 2.19
+ 3.10
+ 2.80
+
+허더즈필  :  첼시7
+ 4.60
+ 3.50
+ 1.58
+왓포드  :  브라이턴8
+ 2.10
+ 3.05
+ 3.00
+울버햄턴  :  에버턴9
+ 2.13
+ 3.05
+ 2.95
+울산현대  :  수원삼성1
+ 2.40
+ 3.05
+ 2.55
+경남FC  :  전남드래11
+ 1.67
+ 3.35
+ 4.20
+상주상무  :  FC서울12
+ 2.55
+ 2.90
+ 2.50
+사우샘프  :  번리13
+ 1.79
+ 3.20
+ 3.75
+아스널  :  맨체스C14
+ 3.35
+ 3.50
+ 1.81
+
+
+
