@@ -1,0 +1,418 @@
+Sub main()
+    Call ¹Ýº¹¹®
+  
+    
+End Sub
+
+Sub ¹Ýº¹¹®()
+
+Dim i As Integer
+Dim j As Integer
+Dim a As Integer
+Dim b As Long
+Dim c As Integer
+a = 1
+b = 1
+c = 0
+Dim wc As Integer
+Dim dc As Integer
+Dim lc As Integer
+Dim bg As Long
+bg = 0
+wc = 0
+dc = 0
+lc = 0
+Dim dcount As Integer
+dcount = 0
+Dim dcount2 As Integer
+dcount2 = 0
+Dim dcount3 As Integer
+dcount3 = 0
+
+Dim arr(14) As Integer
+Dim w(14) As Double
+Dim drow(14) As Double
+Dim lose(14) As Double
+
+'7/28 Å×½ºÆ®¿ë
+w(1) = 1.42
+w(2) = 2.4
+w(3) = 2.5
+w(4) = 3.2
+w(5) = 1.82
+w(6) = 2.19
+w(7) = 4.6
+w(8) = 2.1
+w(9) = 2.13
+w(10) = 2.4
+w(11) = 1.67
+w(12) = 2.55
+w(13) = 1.79
+w(14) = 3.35
+
+drow(1) = 4
+drow(2) = 3.05
+drow(3) = 3.3
+drow(4) = 3.1
+drow(5) = 3.2
+drow(6) = 3.1
+drow(7) = 3.5
+drow(8) = 3.05
+drow(9) = 3.05
+drow(10) = 3.05
+drow(11) = 3.35
+drow(12) = 2.9
+drow(13) = 3.2
+drow(14) = 3.5
+
+lose(1) = 5.5
+lose(2) = 2.55
+lose(3) = 2.31
+lose(4) = 2
+lose(5) = 3.65
+lose(6) = 2.8
+lose(7) = 1.58
+lose(8) = 3
+lose(9) = 2.95
+lose(10) = 2.55
+lose(11) = 4.2
+lose(12) = 2.5
+lose(13) = 3.75
+lose(14) = 1.81
+
+
+arr(1) = 0
+arr(2) = 0
+arr(3) = 0
+arr(4) = 0
+arr(5) = 0
+arr(6) = 0
+arr(7) = 0
+arr(8) = 0
+arr(9) = 0
+arr(10) = 0
+arr(11) = 0
+arr(12) = 0
+arr(13) = 0
+arr(14) = 0
+
+
+For x = 0 To 2 '3ÀÇ 14½Â'''''''''''''''''''''
+arr(1) = x
+
+  For ws = 0 To 2 '3ÀÇ 13½Â''''''''''''''''''''
+  arr(2) = ws
+   
+       For v = 0 To 2 '3ÀÇ 12½Â''''''''''''''''''''''
+       arr(3) = v
+            
+        
+            For u = 0 To 2 '3ÀÇ 11½Â4¹ø'''''''''''''''''''''''''
+            arr(4) = u
+          
+                For t = 0 To 2 '3ÀÇ 10½Â'''''''''''''''''''''
+                arr(5) = t
+              
+                    For s = 0 To 2 '3ÀÇ 9½Â 6¹ø''''''''''''''''''''
+                    arr(6) = s
+                    
+                        For r = 0 To 2 '3ÀÇ 8½Â''''''''''''''''''''
+                        arr(7) = r
+                     
+                            For q = 0 To 2 '3ÀÇ 7½Â'''''''''''''''''''''''''
+                            arr(8) = q
+                                                        
+                                For p = 0 To 2 '3ÀÇ 6½Â
+                                arr(9) = p
+                                    For o = 0 To 2 '3ÀÇ 5½Â 10¹ø
+                                    arr(10) = o
+                                        For n = 0 To 2 '3ÀÇ 4½Â
+                                        arr(11) = n
+                                            For m = 0 To 2 '3ÀÇ 3½Â
+                                            arr(12) = m
+                                                For l = 0 To 2 '3ÀÇ 2½Â 13¹ø °ÔÀÓ
+                                                arr(13) = l
+                                                    For k = 0 To 2 '3ÀÇ 1½Â 14¹ø °ÔÀÓ
+                                                    arr(14) = k
+                                                    
+                                                    
+                                                    
+                                                    '½Â ¹«ÆÐ °¹¼ö ¼¼´Â°Í
+                                                                                                      
+                                                        For i = 1 To 14
+                                                        
+                                                                If arr(i) = 0 Then
+                                                                
+                                                                   wc = wc + 1
+                                                                
+                                                                                                                              
+                                                                ElseIf arr(i) = 1 Then
+                                                                   
+                                                                   dc = dc + 1
+                                                                  
+                                                                ElseIf arr(i) = 2 Then
+                                                                   
+                                                                   lc = lc + 1
+                                                                  
+                                                                End If
+                                                            
+                                                        Next
+                                                        
+                                                    '1¹ø
+                                                                If arr(4) = 1 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(6) = 1 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 1 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                    '6¹ø
+                                                                
+                                                                If arr(7) = 2 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(10) = 0 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                
+                                                                If arr(11) = 0 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                                                                               
+                                                     
+                                                    '7¹ø
+                                                                
+                                                                If arr(1) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(2) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                
+                                                                If arr(3) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                                                                                                                                            
+                                                              
+                                                           
+                                                   '9¹ø
+                                                   
+                                                        If wc > 7 Or dc > 6 Or lc > 7 Then '½Â7¹«6ÆÐ7
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        '2¹ø     11¹ø
+                                                         ElseIf x = 2 And ws = 2 And v = 2 Then
+                                                                a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+        
+                                                        ElseIf x = 0 And ws = 0 And v = 0 Then
+                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                    '8¹ø
+         
+                                                          ElseIf (x = 0 And ws = 2 And v = 2) Then
+                                                          
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                          ElseIf (x = 0 And ws = 1 And v = 2) Then
+                                                          
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            ElseIf (x = 0 And ws = 1 And v = 0) Then
+                                                          
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+          
+                                                ' 3¹ø
+                                                          ElseIf (t = 0 And s = 0) Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            '4¹ø
+                                                    ElseIf (r = 0 And k = 2) Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                    
+                                                    '5¹ø
+                                                    ElseIf (o = 2 And n = 2 And m = 0) Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                            
+                                                    '1¹ø
+                                                        ElseIf dcount > 1 Or dcount < 1 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                            
+                                                     '6¹ø
+                                                        ElseIf dcount2 = 0 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                        
+                                                        ElseIf dcount3 = 0 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                            
+                                                     '10¹ø
+                                                        ElseIf arr(4) = 2 And arr(5) = 0 And arr(6) = 0 Then
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                            
+                                                      '12¹ø
+                                                        ElseIf arr(10) = 0 And arr(11) = 0 And arr(12) = 2 Then
+                                                             a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            
+                                                                                                                                                                           
+                                                                                                                                                    
+                                                        Else                              '´ÙÀ½ÁÙ
+                                                        
+                                                          For i = 1 To 14
+                                                         
+                                                            If arr(i) = 0 Then
+                                                                   Cells(b, a).Value = "½Â " & w(i)
+                                                                   a = a + 1
+                                                                    bg = bg * w(i)
+                                                                ElseIf arr(i) = 1 Then
+                                                                   Cells(b, a).Value = "¹« " & drow(i)
+                                                                   a = a + 1
+                                                                    bg = bg * drow(i)
+                                                                ElseIf arr(i) = 2 Then
+                                                                   Cells(b, a).Value = "ÆÐ " & lose(i)
+                                                                   a = a + 1
+                                                                  bg = bg * lose(i)
+                                                            End If
+                                                            
+                                                            
+                                                            
+                                                          Next
+                                                          
+                                                             Cells(b, a).Value = bg
+                                                             a = 1
+                                                             b = b + 1
+                                                             c = 0
+                                                             wc = 0
+                                                             dc = 0
+                                                             lc = 0
+                                                             dcount = 0
+                                                             dcount2 = 0
+                                                             dcount3 = 0
+                                                             
+                                                
+                                                        End If
+                                                        
+                                                    Next
+                                                Next
+                                            Next
+                                        Next
+                                    Next
+                                Next
+                            Next
+                        Next
+                    Next
+                Next
+            Next
+        Next
+    Next
+Next
+
+
+End Sub
+
+
