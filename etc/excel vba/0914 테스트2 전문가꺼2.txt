@@ -1,0 +1,1571 @@
+Sub main()
+    Call 반복문
+End Sub
+
+
+
+Sub 반복문()
+
+'' 프로그램에 필요한 변수를 설정해 주고 그 값을 초기화 해주는 부분 입니다.
+'' 예를들면 아래 DIm j as integer 는  "j" 라는 정수형 변수를 만든다는 뜻입니다.
+
+Dim i As Integer
+Dim j As Integer
+Dim a As Integer
+Dim b As Long
+Dim c As Integer
+Dim wjd(14) As Integer
+Dim wjd2(14) As Integer
+Dim wjdro As Integer
+wjdro = 0
+Dim wjdro2 As Integer
+wjdro2 = 0
+a = 1
+b = 1
+c = 0
+Dim wc As Integer
+Dim dc As Integer
+Dim lc As Integer
+Dim bg As Long
+bg = 1
+wc = 0
+dc = 0
+lc = 0
+Dim dcount As Integer
+dcount = 0
+Dim dcount2 As Integer
+dcount2 = 0
+Dim dcount3 As Integer
+dcount3 = 0
+Dim dcount4 As Integer
+dcount4 = 0
+Dim dcount5 As Integer
+dcount5 = 0
+Dim dcount6 As Integer
+dcount6 = 0
+Dim dcount7 As Integer
+dcount7 = 0
+Dim dcount8 As Integer
+dcount8 = 0
+Dim dcount9 As Integer
+dcount9 = 0
+Dim dcount10 As Integer
+dcount10 = 0
+Dim dcount11 As Integer
+dcount11 = 0
+
+Dim arr(14) As Integer
+Dim w(14) As Double
+Dim drow(14) As Double
+Dim lose(14) As Double
+
+''''''배당값 수정하는 부분
+''''''w -> 승      drow -> 무       lose -> 패
+''''''ex )        w(1)  -> 1번게임 승 배당률    drow(4) -> 4번게임 무 배당률
+
+w(1) = 1.58
+w(2) = 1.84
+w(3) = 3
+w(4) = 2.6
+w(5) = 2.23
+w(6) = 1.14
+w(7) = 2.75
+w(8) = 3.55
+w(9) = 3.45
+w(10) = 3.05
+w(11) = 2.04
+w(12) = 1.72
+w(13) = 1.69
+w(14) = 1.84
+
+drow(1) = 3.55
+drow(2) = 3.35
+drow(3) = 3.6
+drow(4) = 3.3
+drow(5) = 3.15
+drow(6) = 5.9
+drow(7) = 2.95
+drow(8) = 3.35
+drow(9) = 3.3
+drow(10) = 3.4
+drow(11) = 3.15
+drow(12) = 3.35
+drow(13) = 3.25
+drow(14) = 3.35
+
+lose(1) = 4.5
+lose(2) = 3.4
+lose(3) = 1.9
+lose(4) = 2.23
+lose(5) = 2.7
+lose(6) = 11
+lose(7) = 2.31
+lose(8) = 1.8
+lose(9) = 1.84
+lose(10) = 1.94
+lose(11) = 3.05
+lose(12) = 3.9
+lose(13) = 4.2
+lose(14) = 3.4
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''''''' arr 은 게임 을 의미합니다. ''''''''''''''''''''''
+''''ex ) arr(1) 1번게임   arr(6) 6번게임
+'''' 뒤에 나오는 숫자는 승 무 패 를 의미합니다.    0 -> 승       1 -> 무      2 -> 패
+'''' 여기서는 arr를 초기화시켜준 것 뿐이고 아래 코드에서 arr이 많이 나올거에요.
+
+''##여기부분은 터치하실 필요 없습니다.
+arr(1) = 0
+arr(2) = 0
+arr(3) = 0
+arr(4) = 0
+arr(5) = 0
+arr(6) = 0
+arr(7) = 0
+arr(8) = 0
+arr(9) = 0
+arr(10) = 0
+arr(11) = 0
+arr(12) = 0
+arr(13) = 0
+arr(14) = 0
+
+
+
+''''' wjd 은 형이 말하신 잘하는사람이 마킹한 결과를 저장하는 용도로 사용합니다.  arr와 동일하게 사용하여  arr와 wjd 을 비교할것입니다.
+
+'' #### 잘하는 사람의 승무패 를 입력하시면 됩니다.  복식은 일단 안되게 해두었어요 . 복잡해져요....
+''      승 : 0            무 :1         패: 2
+''      3대신 입력하면됩니다.
+wjd(1) = 0
+wjd(2) = 0 '
+wjd(3) = 2
+wjd(4) = 2 '
+wjd(5) = 1
+wjd(6) = 0
+wjd(7) = 2 '
+wjd(8) = 2 '
+wjd(9) = 2
+wjd(10) = 2
+wjd(11) = 0
+wjd(12) = 0 '
+wjd(13) = 0 '
+wjd(14) = 0
+
+
+
+wjd2(1) = 0
+wjd2(2) = 1 '
+wjd2(3) = 1 'd
+wjd2(4) = 0 'd
+wjd2(5) = 2
+wjd2(6) = 0
+wjd2(7) = 2 '
+wjd2(8) = 2 '
+wjd2(9) = 2
+wjd2(10) = 2
+wjd2(11) = 0 'd
+wjd2(12) = 0 '
+wjd2(13) = 1 '
+wjd2(14) = 0
+
+
+'''##########################################################################################################
+''''위에까지는 변수설정 및 초기화라면 아래부터는 프로그램 코드입니다.
+''##########################################################################################################
+
+
+'' 제가 해놓은것은 if 문과 for 문만 사용하니  이 두개는 인터넷좀 찾아보시면 더 이해하시기 편할거에요
+'' 잘 가르쳐주는 영상같은거두 많아요 . 그사람들 예제 따라해봐도 좋아요
+
+
+
+'' 1번 ~14번 게임을 승 무 패에 따른 결과 약 480만개를 비교하기위해
+'' 다중 포문 사용했습니다. for 안에 for 가있고 그 안에 for 가 있는것이 반복되어 총 480개를 전부 확인합니다.
+
+
+''간단한 for문을 덧붙히자면 바로 아래 포문을 예시로 들겠습니다.
+'' x라는 아이를 0~ 2의 숫자를 대입하여 반복한다는것입니다. 0일때 한번실행 1일때 한번실행 2일떄 한번실행 총 3번 (승 무 패)  , 그후 종료됩니다.
+'' 그 안에 ws 가 0~2 총 3번실행되면  x가 0일때 ws 가 0~2  , x 가 1일떄 ws 가 0~2 ...... 이런식으로 쭉쭉됩니다.
+'' 즉 for문은 반복문에 속해요
+
+For x = 0 To 2 '3의 14승'''''''''''''''''''''1번게임
+arr(1) = x
+
+  For ws = 0 To 2 '3의 13승''''''''''''''''''''2번게임
+  arr(2) = ws
+   
+       For v = 0 To 2 '3의 12승''''''''''''''''''''''3번게임
+       arr(3) = v
+            
+        
+            For u = 0 To 2 '3의 11승4번'''''''''''''''''''''''''4
+            arr(4) = u
+          
+                For t = 0 To 2 '3의 10승'''''''''''''''''''''5
+                arr(5) = t
+              
+                    For s = 0 To 2 '3의 9승 6번''''''''''''''''''''6
+                    arr(6) = s
+                    
+                        For r = 0 To 2 '3의 8승''''''''''''''''''''7
+                        arr(7) = r
+                     
+                            For q = 0 To 2 '3의 7승'''''''''''''''''''''''''8
+                            arr(8) = q
+                                                        
+                                For p = 0 To 2 '3의 6승
+                                arr(9) = p
+                                
+                                    For o = 0 To 2 '3의 5승 10번
+                                    arr(10) = o
+                                    
+                                        For n = 0 To 2 '3의 4승
+                                        arr(11) = n
+                                        
+                                            For m = 0 To 2 '3의 3승
+                                            arr(12) = m
+                                            
+                                                For l = 0 To 2 '3의 2승 13번 게임
+                                                arr(13) = l
+                                                
+                                                    For k = 0 To 2 '3의 1승 14번 게임
+                                                    arr(14) = k
+                                                    
+                                                    
+              '''''''''''''''''''''''''''''''''''''현재 여기는 포문 안에서 실행되는 코드들입니다.
+              '''''''''''''''''''''''''''''''''''''먼저 이 아래는 조건문을 비교하기 전에 필요한 정보를 얻기위한 코드들입니다.
+              
+              
+              
+              
+              
+              
+                                                    '승 무패 갯수 세는것
+                                                    'arr(1) ~ arr(14)  즉 1번게임 ~ 14번 개임의 승 , 무 , 패 의 갯수를 각각 새어 wc dc lc 에 저장합니다ㅏ
+                                                                                                      
+                                                        For i = 1 To 14
+                                                        
+                                                                If arr(i) = 0 Then
+                                                                
+                                                                   wc = wc + 1
+                                                                
+                                                                                                                              
+                                                                ElseIf arr(i) = 1 Then
+                                                                   
+                                                                   dc = dc + 1
+                                                                  
+                                                                ElseIf arr(i) = 2 Then
+                                                                   
+                                                                   lc = lc + 1
+                                                                  
+                                                                End If
+                                                            
+                                                        Next
+                                                        
+                                                        
+                                                        
+                                                     ''' if문은 조건문입니다.
+                                                     ''' 만약에라고 생각하시면 편해요
+                                                    
+                                                     ''##########################################################################################
+                                                        
+                                                    '#1번 조건을 위한 정보
+                                                    
+                                                    '1제외2 패 (역배)3 승 (역배)4 승 (역배)5 패 (역배)6 제외7 승 (역배)8 승 (역배)9 무 (역배)10 승 (역배)11 패 (역배)12 패 (역배)13 패 (역배)14 패 (역배)
+
+                                                        '1----1번부터 14번중에서 (1,6제외)
+                                                        '     역배를 잡아야되니깐 겹치는  4개에서  7개까지만 그 나머지는 다 지워주세요
+
+
+                                                     
+                                                     
+                                                       '' ex ) 만약 arr(1) -> 1번경기가 2 이면 (패) dcount 가 +1이 된다
+                                                       '' 이런식으로 몇개가 겹치는 지 숫자를 새서 나중에 조건문에 dcount 가 7보다 크면 출력을 안한다 라고 한다면
+                                                       '' 1번조건에 맞지 않는 애들을 건너뛸 수 있는것이죠
+                                                       
+                                                                                                                    
+                                                                If arr(2) = 2 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                If arr(3) = 0 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                If arr(4) = 0 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(5) = 2 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                        
+                                                                If arr(7) = 0 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(8) = 0 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                If arr(9) = 1 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                If arr(10) = 0 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(11) = 2 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                If arr(12) = 2 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                If arr(13) = 2 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(14) = 2 Then
+                                                                    dcount = dcount + 1
+                                                                End If
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                       ''# 2번 조건ㅡㅡㅡ4번 6번 10번   무한개포함 그이상은다 지워주세요(무 없으면 지워주세요)
+
+                                                     
+                                                                 If arr(4) = 1 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(6) = 1 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 1 Then
+                                                                    dcount2 = dcount2 + 1
+                                                                End If
+                                                                
+                                                                
+                                                         '#4번 조건 을 위한 정보
+                                                         ''4ㅡㅡㅡ11 12 13 14
+                                                            '승이 1개또는 2개까지만 그 이상은 지워주세요
+
+                                                                
+                                                                 If arr(11) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(12) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                
+                                                                If arr(13) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                
+                                                                If arr(14) = 0 Then
+                                                                    dcount3 = dcount3 + 1
+                                                                End If
+                                                                
+                                                        '   5ㅡㅡㅡ11 12 13 14
+                                                        '패가 1개또는 2개까지만 그 이상은 지워주세요
+                                                                If arr(11) = 2 Then
+                                                                    dcount4 = dcount4 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(12) = 2 Then
+                                                                    dcount4 = dcount4 + 1
+                                                                End If
+                                                                
+                                                                If arr(13) = 2 Then
+                                                                    dcount4 = dcount4 + 1
+                                                                End If
+                                                                
+                                                                If arr(14) = 2 Then
+                                                                    dcount4 = dcount4 + 1
+                                                                End If
+                                                                
+                                                        
+                                                        '6ㅡㅡㅡ11 12 13 14
+                                                        '무가 1개또는 2개까지만 그 이상은 지워주세요
+                                                                 
+                                                                 If arr(11) = 1 Then
+                                                                    dcount5 = dcount5 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(12) = 1 Then
+                                                                    dcount5 = dcount5 + 1
+                                                                End If
+                                                                
+                                                                If arr(13) = 1 Then
+                                                                    dcount5 = dcount5 + 1
+                                                                End If
+                                                                
+                                                                If arr(14) = 1 Then
+                                                                    dcount5 = dcount5 + 1
+                                                                End If
+                                                        
+                                                        
+                                                        '7ㅡㅡㅡ7 8 9 10
+                                                        '승이 1개또는 2개까지만 그 이상은 지워주세요
+                                                        
+                                                                 If arr(7) = 0 Then
+                                                                    dcount6 = dcount6 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(8) = 0 Then
+                                                                    dcount6 = dcount6 + 1
+                                                                End If
+                                                                
+                                                                If arr(9) = 0 Then
+                                                                    dcount6 = dcount6 + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 0 Then
+                                                                    dcount6 = dcount6 + 1
+                                                                End If
+                                                        
+                                                        '8ㅡㅡㅡ7 8 9 10
+                                                        '패가 1개또는 2개까지만 그 이상은 지워주세요
+                                                        
+                                                                If arr(7) = 2 Then
+                                                                    dcount7 = dcount7 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(8) = 2 Then
+                                                                    dcount7 = dcount7 + 1
+                                                                End If
+                                                                
+                                                                If arr(9) = 2 Then
+                                                                    dcount7 = dcount7 + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 2 Then
+                                                                    dcount7 = dcount7 + 1
+                                                                End If
+                                                        
+                                                        '9ㅡㅡㅡ7 8 9 10
+                                                        '무가 1개또는 2개까지만 그 이상은 지워주세요
+     
+                                                                If arr(7) = 1 Then
+                                                                    dcount8 = dcount8 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(8) = 1 Then
+                                                                    dcount8 = dcount8 + 1
+                                                                End If
+                                                                
+                                                                If arr(9) = 1 Then
+                                                                    dcount8 = dcount8 + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 1 Then
+                                                                    dcount8 = dcount8 + 1
+                                                                End If
+                                                                
+                                                           '13ㅡㅡㅡ1  2  3
+                                                            '무 무 승     중에서 한개라도 없을시 지워주세요
+                                                            '두개까지 있으면 지우지 말고 3개다있으면 지워주세요
+     
+                                                                If arr(1) = 1 Then
+                                                                    dcount9 = dcount9 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(2) = 1 Then
+                                                                    dcount9 = dcount9 + 1
+                                                                End If
+                                                                
+                                                                If arr(3) = 0 Then
+                                                                    dcount9 = dcount9 + 1
+                                                                End If
+                                                                
+                                                                
+                                                            ' 16 ㅡㅡㅡㅡ7 8 9 10 11 12
+                                                            ' 무2개포함 그 이상은 다 지워주세요
+                                                            ' (무가없거나 한개있으면  지우면안됨)
+   
+                                                                 If arr(7) = 1 Then
+                                                                    dcount10 = dcount10 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(8) = 1 Then
+                                                                    dcount10 = dcount10 + 1
+                                                                End If
+                                                                
+                                                                If arr(9) = 1 Then
+                                                                    dcount10 = dcount10 + 1
+                                                                End If
+                                                                
+                                                                If arr(10) = 1 Then
+                                                                    dcount10 = dcount10 + 1
+                                                                End If
+                                                                
+                                                                If arr(11) = 1 Then
+                                                                    dcount10 = dcount10 + 1
+                                                                End If
+                                                                                                                              
+                                                                If arr(12) = 1 Then
+                                                                    dcount10 = dcount10 + 1
+                                                                End If
+                                                                
+                                                     
+                                                                
+                                                               
+                                                                
+                                                       
+                                        
+                                                    '# 잘하는 사람과의 정답 일치 갯수를 wjdro 로 숫자를 셉니다
+                                                    'For i = 1 To 14
+                                                    '    If arr(i) = wjd(i) Then
+                                                    '                wjdro = wjdro + 1
+                                                    'End If
+                                                    'Next
+                                                    
+                                                    ''#복식용
+                                                    If arr(1) = wjd(1) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(2) = wjd(2) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(3) = wjd(3) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(4) = wjd(4) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(5) = wjd(5) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(6) = wjd(6) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(7) = wjd(7) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(8) = wjd(8) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(9) = wjd(9) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(10) = wjd(10) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(11) = wjd(11) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(12) = wjd(12) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(13) = wjd(13) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    If arr(14) = wjd(14) Then
+                                                        wjdro = wjdro + 1
+                                                    End If
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    If arr(1) = wjd2(1) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(2) = wjd2(2) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(3) = wjd2(3) Or arr(3) = wjd2(3) + 1 Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(4) = wjd2(4) Or arr(4) = wjd2(4) + 1 Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(5) = wjd2(5) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(6) = wjd2(6) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(7) = wjd2(7) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(8) = wjd2(8) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(9) = wjd2(9) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(10) = wjd2(10) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(11) = wjd2(11) Or arr(11) = wjd2(11) + 1 Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(12) = wjd2(12) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(13) = wjd2(13) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                    
+                                                    If arr(14) = wjd2(14) Then
+                                                        wjdro2 = wjdro2 + 1
+                                                    End If
+                                                               
+                                                              
+                              '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                              ''############################################################################################
+                              ''위에서 수집한 정보 를 기반으로 아래 조건문을 사용해
+                              ''조건을 충족시 엑셀에 결과를 출력하는 부분입니다.
+                              ''############################################################################################
+                              '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                              
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                    '' if 문에는 크게 if elseif else 가 있습니다
+                                                    '' if -> 만약에 , elseif -> 또다른 만약에 , else -> if 랑 elseif에 조건에 안걸린 나머지
+                                                    
+                                                    '' 추가로 and -> 그리고  ,   or  -> 아니면
+                                                    ''ex) x=1 and y=1   -> x가 1이면서 y가 1인것
+                                                    ''ex) x=1 or y =1   -> x가 1이거나 y가 1인것
+                                                           
+                                                           
+                                                           
+                                                           
+                                                   
+                                                   ''#'1제외2 패 (역배)3 승 (역배)4 승 (역배)5 패 (역배)6 제외7 승 (역배)8 승 (역배)9 무 (역배)10 승 (역배)11 패 (역배)12 패 (역배)13 패 (역배)14 패 (역배)
+
+                                                        '1----1번부터 14번중에서 (1,6제외)
+                                                        '     역배를 잡아야되니깐 겹치는  4개에서  7개까지만 그 나머지는 다 지워주세요
+
+                                                   
+                                                    If dcount > 7 Or dcount < 4 Then
+                                                        
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                           
+                                                           
+                                                           
+                                                
+                                                    ''# 2번조건
+                                                   ''# 2번 조건ㅡㅡㅡ4번 6번 10번   무한개포함 그이상은다 지워주세요(무 없으면 지워주세요)
+                                                    
+
+                                                     ElseIf dcount2 = 0 Or dcount2 > 1 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                            
+                                                            
+                                                     ''# 3번조건
+                                                     ''3ㅡㅡㅡㅡ
+                                                        '1패   승   승    승     패
+                                                        '2무   승   패    무     무
+                                                        '3패   무   무    승     승
+                                                        
+                                                        
+                                                          '3-1 패무패
+                                                     ElseIf arr(1) = 2 And arr(2) = 1 And arr(3) = 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                        '3-2 승승무
+                                                      ElseIf arr(1) = 0 And arr(2) = 0 And arr(3) = 1 Then
+                                                                
+                                                           a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                         '3-3 승패무
+                                                      ElseIf arr(1) = 0 And arr(2) = 2 And arr(3) = 1 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                           '3-4 승무승
+                                                     ElseIf arr(1) = 0 And arr(2) = 1 And arr(3) = 0 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        
+                                                        '3-5 패무승
+                                                     ElseIf arr(1) = 2 And arr(2) = 1 And arr(3) = 0 Then
+                                                                
+                                                           a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        
+                                                        
+                                                        '#4번 조건 을 위한 정보
+                                                         ''4ㅡㅡㅡ11 12 13 14
+                                                            '승이 1개또는 2개까지만 그 이상은 지워주세요
+                                                        
+                                                                                                       
+                                                                                                               
+                                                       ElseIf dcount3 < 1 Or dcount3 > 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        
+                                                        
+                                                        '   5ㅡㅡㅡ11 12 13 14
+                                                        '패가 1개또는 2개까지만 그 이상은 지워주세요
+                                                          
+                                                          ElseIf dcount4 < 1 Or dcount4 > 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                                
+                                                        
+                                                        '6ㅡㅡㅡ11 12 13 14
+                                                        '무가 1개또는 2개까지만 그 이상은 지워주세요
+                                                        
+                                                        ElseIf dcount5 < 1 Or dcount5 > 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        
+                                                        '7ㅡㅡㅡ7 8 9 10
+                                                        '승이 1개또는 2개까지만 그 이상은 지워주세요
+                                                        ElseIf dcount6 < 1 Or dcount6 > 2 Then
+                                                                
+                                                           a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        '8ㅡㅡㅡ7 8 9 10
+                                                        '패가 1개또는 2개까지만 그 이상은 지워주세요
+                                                        ElseIf dcount7 < 1 Or dcount7 > 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        '9ㅡㅡㅡ7 8 9 10
+                                                        '무가 1개또는 2개까지만 그 이상은 지워주세요
+                                                        
+                                                        ElseIf dcount8 < 1 Or dcount8 > 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        
+                                                        
+                                                       ' 10ㅡㅡㅡ승7  무6 패7  그이상은 다 지워주세요
+                                                        
+                                                        ElseIf wc > 7 Or dc > 6 Or lc > 7 Then
+                                                            
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                       ' 11ㅡㅡㅡ12 13 14
+                                                       '승승승   /무무무  /패패패 나온조합 지워주세요
+
+                                                         ElseIf arr(12) = 0 And arr(13) = 0 And arr(14) = 0 Then
+                                                                
+                                                           a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        ElseIf arr(12) = 1 And arr(13) = 1 And arr(14) = 1 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                        ElseIf arr(12) = 2 And arr(13) = 2 And arr(14) = 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                            '12ㅡㅡㅡ7 8 9
+                                                            '승승승   /무무무  /패패패 나온조합 지워주세요
+
+                                                            
+                                                             ElseIf arr(7) = 0 And arr(8) = 0 And arr(9) = 0 Then
+                                                                
+                                                           a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        ElseIf arr(7) = 1 And arr(8) = 1 And arr(9) = 1 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                        ElseIf arr(7) = 2 And arr(8) = 2 And arr(9) = 2 Then
+                                                                
+                                                           a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                            
+                                                      '13ㅡㅡㅡ1  2  3
+                                                            '무 무 승     중에서 한개라도 없을시 지워주세요
+                                                            '두개까지 있으면 지우지 말고 3개다있으면 지워주세요
+                                                            
+                                                            
+                                                             ElseIf dcount9 = 0 Or dcount9 > 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                          
+                                                            
+                                                     ''# 14번조건
+                                                     ''1패 지워주세요
+                                                            
+                                                     ElseIf arr(1) = 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                            
+                                                            
+                                                     ''# 15번조건
+                                                     ''6패  지워주세요
+
+                                                            
+                                                     ElseIf arr(6) = 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                          ' 16 ㅡㅡㅡㅡ7 8 9 10 11 12
+                                                            ' 무2개포함 그 이상은 다 지워주세요
+                                                            ' (무가없거나 한개있으면  지우면안됨)
+                                                            
+                                                         ElseIf dcount10 > 1 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            '17ㅡㅡㅡㅡ3  4  5
+                                                            '승 승 패 /     패 패 무   /무 무 승 / 지워주세요
+                                                            
+                                                            
+                                                              ElseIf arr(3) = 0 And arr(4) = 0 And arr(5) = 2 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                        
+                                                        ElseIf arr(3) = 2 And arr(4) = 2 And arr(5) = 1 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                        ElseIf arr(3) = 1 And arr(4) = 1 And arr(5) = 0 Then
+                                                                
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+                                                            
+                                                            
+                                                            
+
+                                                            
+                                                       
+                                                            
+                                                            
+                                                       
+                                                       ''# 추후 추가적으로 잘하는 사람의 갯수를 입력 후 일치갯수가 몇개냐에 따라 출력할떄 사용합니다
+                                                       '' 지금은 사용 못하게 해두겟습니다.
+                                                       '' 사용하시려면 위와동일하게  ' <- 이 점찍은거만 다 지워주시면됩니다.
+                                                            
+                                                            
+                                                           '18
+                                                            '정배도 빼야되는데
+                                                                    '못햇네
+                                                        '1승 2승 3패 4 패 5무 6 승 7패 8 패 9패
+                                                            '10패 11승 12 승 13승 14  승
+
+                                                        '조합이 5개에서 8개까지 맞는것만
+                                                            
+                                                            
+                                                            
+                                                       ElseIf wjdro < 5 Or wjdro > 8 Then
+                                                    
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+            
+                                                        ElseIf wjdro2 < 8 Or wjdro2 > 9 Then
+                                                    
+                                                            a = 1
+                                                            c = 0
+                                                            wc = 0
+                                                            dc = 0
+                                                            lc = 0
+                                                            dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                            bg = 1
+                                                            wjdro = 0
+                                                            wjdro2 = 0
+        
+        
+        
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        '##############################################################################################
+        '위에 조건에서 걸러지지 않은 결과를 출력하는 부분입니다.
+        'cell 이거가 해당셀에 정보를 나오게하는 것
+        '그 밑에 if 는 잘하는 사람이랑 비교했을떄 일치하면 색깔 나오게하는것이요
+        
+        
+        
+                                                        Else                              '다음줄
+                                                        
+                                                           For i = 1 To 14
+                                                         
+                                                            If arr(i) = 0 Then
+                                                                   Cells(b, a).Value = "승 " & w(i)
+                                                                   
+                                                                  ' If arr(i) = wjd(i) Then
+                                                                  ' Cells(b, a).Interior.ColorIndex = 19
+                                                                  ' End If
+                                                                   
+                                                                   If arr(i) = wjd2(i) Then
+                                                                   Cells(b, a).Interior.ColorIndex = 26
+                                                                   End If
+                                                                   
+                                                                  ' If arr(i) = wjd(i) = wjd2(i) Then
+                                                                  ' Cells(b, a).Interior.ColorIndex = 33
+                                                                  ' End If
+                                                                   
+                                                                   
+                                                                   a = a + 1
+                                                                    bg = bg * w(i)
+                                                            ElseIf arr(i) = 1 Then
+                                                                   Cells(b, a).Value = "무 " & drow(i)
+                                                                   
+                                                                  ' If arr(i) = wjd(i) Then
+                                                                  ' Cells(b, a).Interior.ColorIndex = 19
+                                                                  ' End If
+                                                                   
+                                                                   If arr(i) = wjd2(i) Then
+                                                                   Cells(b, a).Interior.ColorIndex = 26
+                                                                   End If
+                                                                   
+                                                                  ' If arr(i) = wjd(i) = wjd2(i) Then
+                                                                  ' Cells(b, a).Interior.ColorIndex = 33
+                                                                  ' End If
+                                                                   
+                                                                   a = a + 1
+                                                                    bg = bg * drow(i)
+                                                            ElseIf arr(i) = 2 Then
+                                                                   Cells(b, a).Value = "패 " & lose(i)
+                                                                   
+                                                                  ' If arr(i) = wjd(i) Then
+                                                                  ' Cells(b, a).Interior.ColorIndex = 19
+                                                                  ' End If
+                                                                   
+                                                                   If arr(i) = wjd2(i) Then
+                                                                   Cells(b, a).Interior.ColorIndex = 26
+                                                                   End If
+                                                                   
+                                                                  ' If arr(i) = wjd(i) = wjd2(i) Then
+                                                                  ' Cells(b, a).Interior.ColorIndex = 33
+                                                                  ' End If
+                                                                   
+                                                                   a = a + 1
+                                                                  bg = bg * lose(i)
+                                                            End If
+                                                            
+                                                            
+                                                            
+                                                          Next
+                                                          
+                                                          
+                                                          
+                                                    ''#복식으로 할경우 따로 색칠을 해줘야 한다.
+                                                    If arr(3) = wjd2(3) + 1 Then
+                                                        Cells(b, a - 12).Interior.ColorIndex = 26
+                                                    End If
+                                                    
+                                                    If arr(4) = wjd2(4) + 1 Then
+                                                        Cells(b, a - 11).Interior.ColorIndex = 26
+                                                    End If
+                                                    
+                                                    If arr(11) = wjd2(11) + 1 Then
+                                                        Cells(b, a - 4).Interior.ColorIndex = 26
+                                                    End If
+                                                    
+                                                    
+                                                   
+                                                    
+                                                 
+                                                          
+                                                          
+                                                             '' 아래것은 배당곱을 나타내기 위한것
+                                                             Cells(b, a).Value = bg
+                                                             a = a + 1
+                                                             
+                                                             
+                                                             '' 아래것은 잘하는 사람과 일치하는 갯수를 나타내기 위한 것
+                                                             Cells(b, a).Value = wjdro
+                                                            
+                                                             
+                                                             
+                                                             ''아래것은 잘하는사람과 일치하는 갯수가 몇개 이상일떄 셀의 색을 칠하기 위한것
+                                                             If wjdro > 5 Then
+                                                             Cells(b, a).Interior.ColorIndex = 36
+                                                             End If
+                                                             
+                                                              a = a + 1
+                                                             
+                                                             '' wjdro2를 나타내기
+                                                             Cells(b, a).Value = wjdro2
+                                                             
+                                                             
+                                                           '  If wjdro2 > 3 Or wjdro2 < 8 Then
+                                                           '  Cells(b, a).Interior.ColorIndex = 33
+                                                           '  End If
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             a = 1
+                                                             b = b + 1
+                                                             c = 0
+                                                             wc = 0
+                                                             dc = 0
+                                                             lc = 0
+                                                             dcount = 0
+                                                            dcount2 = 0
+                                                            dcount3 = 0
+                                                            dcount4 = 0
+                                                            dcount5 = 0
+                                                            dcount6 = 0
+                                                            dcount7 = 0
+                                                            dcount8 = 0
+                                                            dcount9 = 0
+                                                            dcount10 = 0
+                                                             bg = 1
+                                                             wjdro = 0
+                                                             wjdro2 = 0
+                                                
+                                                        End If
+                                                        
+                                                    Next
+                                                Next
+                                            Next
+                                        Next
+                                    Next
+                                Next
+                            Next
+                        Next
+                    Next
+                Next
+            Next
+        Next
+    Next
+Next
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+
